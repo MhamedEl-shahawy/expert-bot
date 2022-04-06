@@ -1,9 +1,320 @@
 /* add css module styles here (optional) */
-
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+body{
+   width: 100%;
+   height: 100%;
+}
 .test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+  position:fixed;
+  bottom:1%;
+  right: 1%;
+}
+.chatBotIcon{
+  font-size: 3.2rem;
+}
+.chatBotIcon a{
+  position: absolute;
+  bottom:1%;
+  right: 1%;
+  color:#EBEBEB;
+  background-color: #3C60F8;
+  border-radius: 50%;
+  padding: 0.2em;
+  display: flex;
+  z-index: 999;
+  width: 3.3rem;
+  height: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 6px, rgb(0 0 0 / 20%) 0px 2px 24px;
+  cursor: pointer;
+}
+.chatContainer{
+  position: relative;
+  width:18rem;
+  height: 21rem;
+  top:5%;
+
+   border:2px solid #f2f5f8;
+   background-color: #fff;
+   box-shadow:0 5px 20px rgb(0 0 0 / 10%);
+   overflow-x: hidden;
+   border-radius: 5px;
+   right: 10%;
+   margin-bottom:5rem;
+}
+.formMessage{
+   position: absolute;
+   bottom:0;
+   border-top:2px solid #f2f5f8;
+   width: 100%;
+   padding-right: 0.2em;
+   height: 10%;
+}
+.messageContainer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.messageInput{
+   width: 90%;
+   font-size: 1em;
+   padding-left: 0.3em;
+   border:none;
+   outline: none;
+   height: 100%;
+}
+.messageInput:not(:focus)::placeholder{
+  text-decoration-line:underline;
+  text-decoration-thickness: 0.15rem;
+  text-underline-offset: 0.1em;
+  text-decoration-color:#74a9f6;
+  opacity: 1;
+  animation: blink 2s step-end infinite;
+}
+
+.sendIcon{
+   font-size: 2em;
+   color:#74a9f6;
+}
+.lists{
+   list-style: none;
+   width: 100%;
+   height: 80%;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 0.5em 0.5em;
+  display: block;
+
+  
+}
+.list{
+  width:100%;
+}
+.listContainer{
+  width:100%;
+  display: flex;
+  align-items: center;
+ 
+}
+.lists .list:nth-child(2n){
+  margin: 1em 0;
+  position: relative;
+  left:0%;  
+  height: 3rem;
+  width: 100%;
+ }
+ .avatar{
+    width: 25%;
+ }
+ .lists .list:nth-child(2n) .listContainer{
+  position: absolute;  
+  left: 50%;
+
+}
+img{
+   max-width: 100%;
+}
+.messageUser{
+   background-color: #74a9f6;
+   padding:1em 0.3em;
+   font-size: 1em;
+   border-radius: 18px 18px 18px 0px;
+   box-shadow: rgb(0 0 0 / 15%) 0px 1px 2px 0px;
+   margin-right: 0.2em;
+   color:#fff;
+}
+.lists .list:nth-child(2n) .listContainer .messageUser{
+   box-shadow: rgb(0 0 0 / 15%) 0px 1px 2px 0px;
+   border-radius: 18px 18px 0px;
+   background-color: rgb(255, 255, 255);
+   color: #000;
+}
+
+::-webkit-scrollbar{
+   width: 0;
+}
+
+/* loader style */
+#fountainG{
+	position:relative;
+	width:5.5rem;
+	height:1rem;
+	margin:auto;
+}
+
+.fountainG{
+	position:absolute;
+	top:0;
+	background-color:rgb(0,0,0);
+	width:0.7rem;
+	height:0.8rem;
+	animation-name:bounce_fountainG;
+		-o-animation-name:bounce_fountainG;
+		-ms-animation-name:bounce_fountainG;
+		-webkit-animation-name:bounce_fountainG;
+		-moz-animation-name:bounce_fountainG;
+	animation-duration:1.5s;
+		-o-animation-duration:1.5s;
+		-ms-animation-duration:1.5s;
+		-webkit-animation-duration:1.5s;
+		-moz-animation-duration:1.5s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+	transform:scale(.3);
+		-o-transform:scale(.3);
+		-ms-transform:scale(.3);
+		-webkit-transform:scale(.3);
+		-moz-transform:scale(.3);
+	border-radius:19px;
+		-o-border-radius:19px;
+		-ms-border-radius:19px;
+		-webkit-border-radius:19px;
+		-moz-border-radius:19px;
+}
+
+#fountainG_1{
+	left:0;
+	animation-delay:0.6s;
+		-o-animation-delay:0.6s;
+		-ms-animation-delay:0.6s;
+		-webkit-animation-delay:0.6s;
+		-moz-animation-delay:0.6s;
+}
+
+#fountainG_2{
+	left:21px;
+	animation-delay:0.75s;
+		-o-animation-delay:0.75s;
+		-ms-animation-delay:0.75s;
+		-webkit-animation-delay:0.75s;
+		-moz-animation-delay:0.75s;
+}
+
+#fountainG_3{
+	left:50px;
+	animation-delay:0.9s;
+		-o-animation-delay:0.9s;
+		-ms-animation-delay:0.9s;
+		-webkit-animation-delay:0.9s;
+		-moz-animation-delay:0.9s;
+}
+
+#fountainG_4{
+	left:80px;
+	animation-delay:1.05s;
+		-o-animation-delay:1.05s;
+		-ms-animation-delay:1.05s;
+		-webkit-animation-delay:1.05s;
+		-moz-animation-delay:1.05s;
+}
+
+#fountainG_5{
+	left:109px;
+	animation-delay:1.2s;
+		-o-animation-delay:1.2s;
+		-ms-animation-delay:1.2s;
+		-webkit-animation-delay:1.2s;
+		-moz-animation-delay:1.2s;
+}
+
+#fountainG_6{
+	left:138px;
+	animation-delay:1.35s;
+		-o-animation-delay:1.35s;
+		-ms-animation-delay:1.35s;
+		-webkit-animation-delay:1.35s;
+		-moz-animation-delay:1.35s;
+}
+
+#fountainG_7{
+	left:175px;
+	animation-delay:1.5s;
+		-o-animation-delay:1.5s;
+		-ms-animation-delay:1.5s;
+		-webkit-animation-delay:1.5s;
+		-moz-animation-delay:1.5s;
+}
+
+#fountainG_8{
+	left:205px;
+	animation-delay:1.64s;
+		-o-animation-delay:1.64s;
+		-ms-animation-delay:1.64s;
+		-webkit-animation-delay:1.64s;
+		-moz-animation-delay:1.64s;
+}
+
+
+
+@keyframes bounce_fountainG{
+	0%{
+	transform:scale(1);
+		background-color:rgb(0,0,0);
+	}
+
+	100%{
+	transform:scale(.3);
+		background-color:rgb(255,255,255);
+	}
+}
+
+@-o-keyframes bounce_fountainG{
+	0%{
+	-o-transform:scale(1);
+		background-color:rgb(0,0,0);
+	}
+
+	100%{
+	-o-transform:scale(.3);
+		background-color:rgb(255,255,255);
+	}
+}
+
+@-ms-keyframes bounce_fountainG{
+	0%{
+	-ms-transform:scale(1);
+		background-color:rgb(0,0,0);
+	}
+
+	100%{
+	-ms-transform:scale(.3);
+		background-color:rgb(255,255,255);
+	}
+}
+
+@-webkit-keyframes bounce_fountainG{
+	0%{
+	-webkit-transform:scale(1);
+		background-color:rgb(0,0,0);
+	}
+
+	100%{
+	-webkit-transform:scale(.3);
+		background-color:rgb(255,255,255);
+	}
+}
+
+@-moz-keyframes bounce_fountainG{
+	0%{
+	-moz-transform:scale(1);
+		background-color:rgb(0,0,0);
+	}
+
+	100%{
+	-moz-transform:scale(.3);
+		background-color:rgb(255,255,255);
+	}
 }
