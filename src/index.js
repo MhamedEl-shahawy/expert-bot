@@ -2,14 +2,14 @@ import React,{useState,useRef} from 'react'
 import styles from './styles.module.css'
 import {MdForum,MdOutlineSend,MdClose} from "react-icons/md";
 import {FromChat} from "./FormChat";
-export const ExampleComponent = ({ text }) => {
+export const ExpertBot = ({ text }) => {
   const [show,setShow] = useState(true);
   const [userInput,setUserInput] = useState("");
-  const [message,setMessage] = useState("");
+  const [message,setMessage] = useState([]);
   const inputMessage = useRef(null);
   const handleChanges = (e)=>{
      e.preventDefault();
-    setMessage(inputMessage.current.value);
+    setMessage([...message,inputMessage.current.value]);
     inputMessage.current.value = "";
   }
   return <section className={styles.test}>

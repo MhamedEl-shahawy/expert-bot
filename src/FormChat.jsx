@@ -3,17 +3,29 @@ import Avvvatars from 'avvvatars-react'
 import styles from './styles.module.css';
 import download from "./bot.png";
 export const FromChat = ({ text }) => {
-   const [replay,setReplay] = useState("");
+   const [replay,setReplay] = useState([]);
    const [loadingBot,setLoadingBot] = useState(false); 
-  useEffect(()=>{
-    
-     if(text === "mohamed"){
+   const [msgNow,setMsgNow] = useState("Hello,What's your name?")
+  useEffect(()=>{ 
+     if(text.length > 0){
+      for(let x of text){
+        setReplay([...replay,
+          {
+           message:x,
+           botReplay:msgNow === "Hello,What's your name?"? `Uh good welcome, ${x}`:""
+          },
+          {
+            message:"",
+            botReplay:"How can i help you?"
+          }
+      ]);
+      
+      }
+   
+  
       setLoadingBot(true);
- 
       setTimeout(()=>{
-         
-        setReplay("oh, good")
-       setLoadingBot(false);
+      setLoadingBot(false);
 
       },2000)
      }  
@@ -31,20 +43,20 @@ export const FromChat = ({ text }) => {
              </p>
              </div>
              </li>
-             {text.toString().trim() !== ""?
-             <li className={styles.list}>
+             {replay.length> 0 && text.length > 0 && replay.map((db,i)=>{
+               return( 
+               <Fragment key={i}>
+             <li className={styles.list} style={{visibility:db.message === ""? 'hidden':'visible',height:db.message === "" ? "0":"3rem"}}>
              <div className={styles.listContainer}>
              <p className={styles.messageUser}>
-               {text} 
+               {db.message} 
              </p>
              <div className={styles.avatar}>  
              <Avvvatars style='shape' size={40} value="tim@apple.com" />
              </div>
              </div>
              </li>
-             :""
-             }
-             {replay.toString().trim() !== ""  || loadingBot? 
+          
              <li className={styles.list}>
              <div className={styles.listContainer}>
              <div className={styles.avatar}>  
@@ -59,13 +71,16 @@ export const FromChat = ({ text }) => {
                   <div id={styles.fountainG_4}  className={styles.fountainG}></div>
                 
                 </div>
-              :replay}
+               :db.botReplay
+              }
              </p>
              </div>
              </li>
-             :""
-            }
-
+                        
+          </Fragment>
+          )
+          })
+          }
          </ul>
        </Fragment>
    )

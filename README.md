@@ -9,18 +9,22 @@
 ```bash
 npm install --save expert-bot
 ```
+## what you should see
+![Alt Text](https://media.giphy.com/media/BJwiSAqAWn0VuT8wi2/giphy.gif)
+
+
 
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'expert-bot'
+import {ExpertBot} from 'expert-bot'
 import 'expert-bot/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <ExpertBot />
   }
 }
 ```
